@@ -1,14 +1,12 @@
 plugins {
     id "de.inetsoftware.jwebassembly" version "0.3"
-    id "java"
 }
 
 repositories {
     mavenCentral()
 }
 dependencies {
-    implementation 'de.inetsoftware:jwebassembly-api:+'
-    //implementation 'com.scientiamobile.wurfl:wurfl:1.12.3.0'
+    implementation 'de.inetsoftware:jwebassembly-api:0.3'
 }
 
 // declare your Java sources like you do it for your other Java projects
@@ -21,7 +19,8 @@ sourceSets {
 }
 
 wasm {
-    format = 'Text'        // possible values are 'Text' and 'Binary'. 'Binary' is the default value.
+    format = 'Binary'        // possible values are 'Text' and 'Binary'. 'Binary' is the default value.
     compilerVersion = 0.3  // specify a compiler version, default is '+'
     //classpath = files(...) // specify libraries, default is sourceSet.compileClasspath
+    debugNames = true
 }
