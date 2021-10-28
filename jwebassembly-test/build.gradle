@@ -23,4 +23,9 @@ wasm {
     compilerVersion = 0.3  // specify a compiler version, default is '+'
     //classpath = files(...) // specify libraries, default is sourceSet.compileClasspath
     debugNames = true
+    archivesBaseName = 'wasm-test'
+}
+
+task printJavaVersion {
+    System.out.println("Running on Java: " + JavaVersion.current())
 }
