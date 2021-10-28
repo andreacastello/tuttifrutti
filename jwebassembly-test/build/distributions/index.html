@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="wasm-test.wasm.js"></script>
+  </head>
+<body>
+  <script>
+    WebAssembly.instantiateStreaming(fetch('wasm-test.wasm'), wasmImports)
+      .then(obj => obj.instance.exports.main())
+      .catch(err => document.write(err));
+  </script>
+</body>
+</html>
+
