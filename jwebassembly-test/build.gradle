@@ -1,26 +1,34 @@
-plugins {
-    id "de.inetsoftware.jwebassembly" version "0.3"
+buildscript {
+    repositories {
+        maven { url uri('https://jitpack.io') }
+    }
+    dependencies {
+        classpath 'com.github.i-net-software:jwebassembly-gradle:master-SNAPSHOT'
+    }
 }
 
+apply plugin: 'de.inetsoftware.jwebassembly'
+
 repositories {
-    mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 dependencies {
-    implementation 'de.inetsoftware:jwebassembly-api:0.3'
+    compile 'com.github.i-net-software:jwebassembly-api:master-SNAPSHOT'
 }
+
 
 // declare your Java sources like you do it for your other Java projects
 sourceSets {
     main {
         java {
-            srcDir 'src'
+            srcDir 'src/main/java'
         }
     }
 }
 
 wasm {
     format = 'Binary'        // possible values are 'Text' and 'Binary'. 'Binary' is the default value.
-    compilerVersion = 0.3  // specify a compiler version, default is '+'
+    compilerVersion = 'com.github.i-net-software:jwebassembly:master-SNAPSHOT'
     //classpath = files(...) // specify libraries, default is sourceSet.compileClasspath
     debugNames = true
     archivesBaseName = 'wasm-test'
