@@ -10,7 +10,15 @@ buildscript {
 apply plugin: 'de.inetsoftware.jwebassembly'
 
 repositories {
+    mavenCentral()
     maven { url 'https://jitpack.io' }
+    maven {
+        credentials {
+            username "$mavenUser"
+            password "$mavenPassword"
+        }
+        url 'https://maven.scientiamobile.com/repository/wurfl-onsite/'
+    }
 }
 dependencies {
     compile 'com.github.i-net-software:jwebassembly-api:master-SNAPSHOT'
